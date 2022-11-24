@@ -26,11 +26,17 @@ void TreeDynamic::print() {
 }
 
 bool TreeDynamic::insertSubtree(NodeDynamic *newParent, NodeDynamic *newChild) {
-    bool canPerform = newParent->isInTheSameTree(root) && !newParent->isInTheSameTree(newChild);
+    bool canPerform = newParent->isInTheSameTree(root)
+            && !newParent->isInTheSameTree(newChild)
+            && !newChild->isRoot();
     if (canPerform)
     {
         newChild->detachFromParent();
         newParent->addNewChild(newChild);
     }
     return canPerform;
+}
+
+int TreeDynamic::getHeight() {
+    return root->getHeight();
 }

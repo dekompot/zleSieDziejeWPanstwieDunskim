@@ -106,4 +106,5 @@ void dynamicTreeTest()
     tree.print();
     printf("\n %s \n","Second tree:");
     secondTree.print();
+    printf("%i",TreeDynamic().getHeight());
 }

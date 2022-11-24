@@ -29,14 +29,16 @@ void TreeStatic::print() {
 }
 
 bool TreeStatic::insertSubtree(NodeStatic *newParent, NodeStatic *newChild) {
-    bool canPerform = newParent->isInTheSameTree(&root) && !newParent->isInTheSameTree(newChild);
+    bool canPerform = newParent->isInTheSameTree(&root)
+            && !newParent->isInTheSameTree(newChild)
+            && !newChild->isRoot();
     if (canPerform)
     {
         int oldIndex = newChild->getMyIndex();
         NodeStatic oldParent = *newChild->getParent();
         //newChild->detachFromParent();
-        newParent->addNewChild(newChild);
-        oldParent.removeChild(oldIndex);
+        newParent->addNewChild(newChild);;
+        oldParent.getChild(oldIndex)->detachFromParent();
     }
     return canPerform;
 }

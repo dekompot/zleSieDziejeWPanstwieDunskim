@@ -93,4 +93,20 @@ bool NodeDynamic::isInTheSameTree(NodeDynamic *otherNode) {
     return root == otherNode->root;
 }
 
+bool NodeDynamic::isRoot()
+{
+    return root==this;
+}
+
+int NodeDynamic::getHeight() {
+    int max = 1;
+    for (int i = 0 ; i < getChildrenNumber() ; i++)
+    {
+        if (children.at(i)->getHeight()+1 > max)
+            max = children.at(i)->getHeight()+1;
+    }
+    return max;
+}
+
+
 #include "NodeDynamic.h"

@@ -25,17 +25,21 @@ public:
     void printAllBelow();
     void printAllAbove();
     bool isInTheSameTree(NodeStatic *otherNode);
-    void setRoot(NodeStatic *newRoot);
     void removeChild(int index);
 
+    bool isRoot();
     NodeStatic *getParent() const;
+
+    bool operator==(const NodeStatic &rhs) const;
+
+    bool operator!=(const NodeStatic &rhs) const;
+
 private:
     NodeStatic *parent;
     vector<NodeStatic> children;
-
     NodeStatic *root;
-
     int value;
+    void setRoot(NodeStatic *newRoot);
 };
 
 

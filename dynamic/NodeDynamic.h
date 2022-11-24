@@ -25,9 +25,17 @@ public:
     void printAllBelow();
     bool isInTheSameTree(NodeDynamic *otherNode);
     void removeChild(int index);
+    bool isRoot();
+    int getHeight();
+
+    bool operator==(const NodeDynamic &rhs) const;
+
+    bool operator!=(const NodeDynamic &rhs) const;
+
 private:
     vector<NodeDynamic *> children;
     NodeDynamic *parent;
+
     NodeDynamic *root;
 
     int value;

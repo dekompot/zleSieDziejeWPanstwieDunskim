@@ -20,7 +20,7 @@ int NodeStatic::getChildrenNumber() {
 
 void NodeStatic::addNewChild(NodeStatic *newChild) {
     newChild->parent = this;
-    newChild->root = this->root;
+    newChild->setRoot(this->root);
     children.push_back(*newChild);
 }
 
@@ -93,5 +93,17 @@ int NodeStatic::getMyIndex() {
 
 NodeStatic *NodeStatic::getParent() const {
     return parent;
+}
+
+bool NodeStatic::operator==(const NodeStatic &rhs) const {
+    return value == rhs.value;
+}
+
+bool NodeStatic::operator!=(const NodeStatic &rhs) const {
+    return !(rhs == *this);
+}
+
+bool NodeStatic::isRoot(){
+    return root==this;
 }
 

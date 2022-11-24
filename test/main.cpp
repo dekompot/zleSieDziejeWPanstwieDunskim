@@ -2,7 +2,7 @@
 #include "TestMethods.h"
 
 int main() {
-    //staticTreeTest();
+    staticTreeTest();
     dynamicTreeTest();
     return 0;
 }

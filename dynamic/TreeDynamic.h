@@ -16,6 +16,7 @@ public:
     void setRoot(NodeDynamic *newRoot);
     void print();
     bool insertSubtree(NodeDynamic *newParent, NodeDynamic *newChild);
+    int getHeight();
 private:
     NodeDynamic *root;
 };
